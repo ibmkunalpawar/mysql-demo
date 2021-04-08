@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function sendData() {
+		fetch('/user', {
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			body : JSON.stringify({
+				name : document.getElementById('username').value,
+				emailId : document.getElementById('email').value,
+				mobileNumber : document.getElementById('mobilenumber').value,
+			})
+		});
+	}
+	function getData() {
+		fetch('/user', {
+			method : 'GET',
+			headers : {
+				'Content-Type':'application/json'
+					
+			},
+			body :JSON.stringify({
+				name : document.getElementById('username').value,
+				emailId : document.getElementById('email').value,
+				mobileNumber : document.getElementById('mobilenumber').value,
+
+			})
+		});
+	}
+</script>
+</head>
+<body>
+	<label>Enter Name</label>
+	<input id='username' placeholder="Name">
+	<br>
+	<br>
+	<label>Enter Email address</label>
+	<input id='email' placeholder="Email">
+	<br>
+	<br>
+	<label>Enter Mobile Number</label>
+	<input id='mobilenumber' placeholder="Mobile Number">
+	<br>
+	<br>
+	<button onclick="sendData()">Submit</button>
+	<button onclick=getdata()>GetData</button>
+</body>
+</html>
